@@ -52,7 +52,7 @@ namespace BingWallpaper
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        public async Task Download(string url)
+        public async Task DownloadAsync(string url)
         {
             HttpClient client = new HttpClient();
             string json = client.GetStringAsync(url).Result;
@@ -66,8 +66,16 @@ namespace BingWallpaper
                 Directory.CreateDirectory(WallpaperPath);
             }
             File.WriteAllBytes(WallpaperPath + fileName, buffer);
-            //设置壁纸
-            SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, WallpaperPath + fileName, 1);
+        }
+        #endregion
+
+        #region 设置最新的壁纸
+        public void SetWindowsWallpaper(Task task)
+        {
+            //查找壁纸文件夹下最新的壁纸
+            DirectoryInfo dirInfo = new DirectoryInfo(WallpaperPath);
+            FileInfo fileInfo = dirInfo.EnumerateFiles().OrderBy(f => f.CreationTime).LastOrDefault();
+            SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, WallpaperPath + fileInfo.FullName, 1);
         }
         #endregion
 
