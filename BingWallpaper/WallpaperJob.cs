@@ -18,8 +18,8 @@ namespace BingWallpaper
         /// <param name="context"></param>
         public async void Execute(IJobExecutionContext context)
         {
-            string path = $"\\BingWallpaper\\{DateTime.Now.Year}\\";
-            Wallpaper wallpaper = new Wallpaper(path);
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + $"\\BingWallpaper\\{DateTime.Now.Year}\\";
+            Wallpaper wallpaper = new Wallpaper();
             if(!wallpaper.Exists)
             {
                 await wallpaper.DownloadAsync("http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1");
