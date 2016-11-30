@@ -14,7 +14,7 @@ namespace BingWallpaper
     {
         static void Main(string[] args)
         {
-
+            //
         }
     }
 }
