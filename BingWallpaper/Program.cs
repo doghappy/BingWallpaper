@@ -31,7 +31,6 @@ namespace BingWallpaper
                 h.SetDisplayName("BingWallpaper");
                 h.SetServiceName("BingWallpaper");
             });
-            Console.WriteLine("Bing壁纸服务正在运行中……");
             Console.ReadKey();
         }
     }
