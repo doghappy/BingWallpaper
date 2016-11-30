@@ -15,7 +15,10 @@ namespace BingWallpaper
         /// <summary>
         /// 壁纸的路径
         /// </summary>
-        public string WallpaperPath { get { return $"C:\\BingWallpaper\\{DateTime.Now.Year}\\"; } }
+        public string WallpaperPath
+        {
+            get { return $"C:\\BingWallpaper\\{DateTime.Now.Year}\\"; }
+        }
 
         #region 壁纸是否存在
         /// <summary>
