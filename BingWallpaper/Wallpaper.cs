@@ -1,11 +1,9 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BingWallpaper
@@ -17,7 +15,7 @@ namespace BingWallpaper
         /// </summary>
         public string WallpaperPath
         {
-            get { return $"C:\\BingWallpaper\\{DateTime.Now.Year}\\"; }
+            get { return Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + $"BingWallpapers\\{DateTime.Now.Year}\\"; }
         }
 
         #region 壁纸是否存在
@@ -31,7 +29,7 @@ namespace BingWallpaper
                 if(Directory.Exists(WallpaperPath))
                 {
                     DirectoryInfo dirInfo = new DirectoryInfo(WallpaperPath);
-                    var fileInfo = dirInfo.EnumerateFiles();
+                    var fileInfo = dirInfo.EnumerateFiles("*.jpg");
                     foreach(FileInfo file in fileInfo)
                     {
                         if(file.CreationTime.Date == DateTime.Now.Date)
@@ -88,8 +86,8 @@ namespace BingWallpaper
         /// <param name="lpvparam"></param>
         /// <param name="fuwinIni"></param>
         /// <returns></returns>
-        [DllImport("user32.dll", EntryPoint = "SystemParametersInfoA")]
-        static extern Int32 SystemParametersInfo(Int32 uAction, Int32 uParam, string lpvparam, Int32 fuwinIni);
+        [DllImport("user32.dll", EntryPoint = "SystemParametersInfo")]
+        static extern int SystemParametersInfo(int uAction, int uParam, string lpvparam, int fuwinIni);
         private const int SPI_SETDESKWALLPAPER = 20;
         #endregion
     }
