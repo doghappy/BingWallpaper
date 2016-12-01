@@ -8,7 +8,7 @@ namespace BingWallpaper
             Wallpaper wallpaper = new Wallpaper();
             if(!wallpaper.Exists)
             {
-                wallpaper.DownloadAsync("http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1").Start();
+                wallpaper.Download("http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1");
             }
         }
     }

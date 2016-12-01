@@ -15,7 +15,7 @@ namespace BingWallpaper
         /// </summary>
         public string WallpaperPath
         {
-            get { return Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + $"BingWallpapers\\{DateTime.Now.Year}\\"; }
+            get { return Environment.GetFolderPath(Environment.SpecialFolder.MyPictures) + $"\\BingWallpapers\\{DateTime.Now.Year}\\"; }
         }
 
         #region 壁纸是否存在
@@ -49,15 +49,15 @@ namespace BingWallpaper
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        public async Task DownloadAsync(string url)
+        public void Download(string url)
         {
             HttpClient client = new HttpClient();
-            string json = await client.GetStringAsync(url);
+            string json = client.GetStringAsync(url).Result;
 
             JObject obj = JObject.Parse(json);
             string imgUrl = obj["images"].FirstOrDefault()["url"].Value<string>();
             string fileName = Path.GetFileName(imgUrl);
-            byte[] buffer = await client.GetByteArrayAsync(imgUrl);
+            byte[] buffer = client.GetByteArrayAsync(imgUrl).Result;
             if(!Directory.Exists(WallpaperPath))
             {
                 Directory.CreateDirectory(WallpaperPath);
