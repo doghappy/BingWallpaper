@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Linq;
@@ -26,16 +26,17 @@ namespace BingWallpaper
         {
             get
             {
-                if(Directory.Exists(WallpaperPath))
+                DirectoryInfo dirInfo = new DirectoryInfo(WallpaperPath);
+                if(!dirInfo.Exists)
                 {
-                    DirectoryInfo dirInfo = new DirectoryInfo(WallpaperPath);
-                    var fileInfo = dirInfo.EnumerateFiles("*.jpg");
-                    foreach(FileInfo file in fileInfo)
+                    return false;
+                }
+                var fileInfo = dirInfo.EnumerateFiles("*.jpg");
+                foreach(FileInfo file in fileInfo)
+                {
+                    if(file.CreationTime.Date == DateTime.Now.Date)
                     {
-                        if(file.CreationTime.Date == DateTime.Now.Date)
-                        {
-                            return true;
-                        }
+                        return true;
                     }
                 }
                 return false;
@@ -52,10 +53,10 @@ namespace BingWallpaper
         public void Download(string url)
         {
             HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://www.bing.com/");
             string json = client.GetStringAsync(url).Result;
-
-            JObject obj = JObject.Parse(json);
-            string imgUrl = obj["images"].FirstOrDefault()["url"].Value<string>();
+            dynamic data = JsonConvert.DeserializeObject(json);
+            string imgUrl = data.images[0].url;
             string fileName = Path.GetFileName(imgUrl);
             byte[] buffer = client.GetByteArrayAsync(imgUrl).Result;
             if(!Directory.Exists(WallpaperPath))
