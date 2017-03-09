@@ -64,7 +64,6 @@ namespace BingWallpaper
                 Directory.CreateDirectory(WallpaperPath);
             }
             File.WriteAllBytes(WallpaperPath + fileName, buffer);
-            SetWindowsWallpaper();
         }
         #endregion
 
