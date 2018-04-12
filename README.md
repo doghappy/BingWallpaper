@@ -6,7 +6,7 @@
 > 说明：程序会下载当天的必应壁纸，并自动设置为桌面壁纸，您可以在`图片/BingWallpapers/{年份}`找到壁纸
 
 ## 下载地址
-[下载🎁](https:://github.com/HeroWong95/BingWallpaper/releases "Markdown")
+[下载🎁](https://github.com/HeroWong95/BingWallpaper/releases)
 
 ## 安装
 1. 在`图片`文件夹下创建`BingWallpapers`
