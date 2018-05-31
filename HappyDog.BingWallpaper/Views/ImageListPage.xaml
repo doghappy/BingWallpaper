@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="HappyDog.BingWallpaper.Views.ImageListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HappyDog.BingWallpaper.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:HappyDog.BingWallpaper.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <controls:AdaptiveGridView ItemsSource="{x:Bind Images}"
+                                   IsItemClickEnabled="True"
+                                   ItemHeight="300"
+                                   ItemClick="AdaptiveGridView_ItemClick"
+                                   DesiredWidth="500">
+            <controls:AdaptiveGridView.ItemTemplate>
+                <DataTemplate x:DataType="models:ImageInfo">
+                    <Grid>
+                        <Image Source="{x:Bind Url}" Stretch="UniformToFill"/>
+                        <Border VerticalAlignment="Top" Padding="20">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint=".5,0" EndPoint=".5,2">
+                                    <GradientStop Color="#80000000" Offset="0"/>
+                                    <GradientStop Color="#00000000" Offset=".5"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="{x:Bind Copyright}" TextWrapping="Wrap" Foreground="White"/>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </controls:AdaptiveGridView.ItemTemplate>
+        </controls:AdaptiveGridView>
+    </Grid>
+</Page>
