@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -42,6 +44,17 @@ namespace HappyDog.BingWallpaper.Views
         {
             base.OnNavigatedTo(e);
             ImageInfo = e.Parameter as ImageInfo;
+        }
+
+        private async void Download_Click(object sender, RoutedEventArgs e)
+        {
+            string name = Path.GetFileName(ImageInfo.Url);
+            var file = await ApplicationData.Current.LocalFolder.CreateFileAsync(name, CreationCollisionOption.OpenIfExists);
+            using (var client = new HttpClient())
+            {
+                byte[] buffer = await client.GetByteArrayAsync(ImageInfo.Url);
+                await FileIO.WriteBytesAsync(file, buffer);
+            }
         }
     }
 }

@@ -17,8 +17,7 @@
                     HorizontalAlignment="Right"
                     Background="Transparent"
                     DefaultLabelPosition="Bottom">
-            <AppBarButton Icon="Download" Label="下载"/>
-            <AppBarButton Icon="More" Label="图片信息"/>
+            <AppBarButton Icon="Download" Label="下载" Click="Download_Click"/>
         </CommandBar>
     </Grid>
 </Page>

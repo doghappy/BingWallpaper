@@ -22,6 +22,11 @@
                         <SymbolIcon Symbol="Home"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
+                <NavigationViewItem Tag="download" Content="已下载">
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Download"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
             </NavigationView.MenuItems>
 
             <Frame x:Name="ContentFrame" Navigated="ContentFrame_Navigated">
