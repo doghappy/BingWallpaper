@@ -28,6 +28,11 @@
                     HorizontalAlignment="Right"
                     Background="Transparent"
                     DefaultLabelPosition="Bottom">
+            <AppBarButton Label="设置壁纸" Click="SetWallpaper_Click">
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xEB9F;"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
             <AppBarButton Icon="Delete" Label="删除" Click="Delete_Click"/>
             <AppBarButton Icon="Folder" Label="在文件夹中显示" Click="ShowFolder_Click"/>
         </CommandBar>

@@ -1,21 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.System;
+using Windows.System.UserProfile;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 namespace HappyDog.BingWallpaper.Views
 {
@@ -82,6 +73,40 @@ namespace HappyDog.BingWallpaper.Views
         private async void ShowFolder_Click(object sender, RoutedEventArgs e)
         {
             await Launcher.LaunchFolderAsync(ApplicationData.Current.LocalFolder);
+        }
+
+        private async void SetWallpaper_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialog dialog = new ContentDialog();
+            if (Selected == null)
+            {
+                dialog.Title = "提示";
+                dialog.Content = "请选中要您喜欢的图片";
+                dialog.PrimaryButtonText = "确定";
+                await dialog.ShowAsync();
+            }
+            else
+            {
+                string name = Path.GetFileName(Selected);
+                var file = await ApplicationData.Current.LocalFolder.GetFileAsync(name);
+                if (file != null)
+                {
+                    bool result = await UserProfilePersonalizationSettings.Current.TrySetWallpaperImageAsync(file);
+                    if (result)
+                    {
+                        dialog.Title = "提示";
+                        dialog.Content = "设置壁纸成功";
+                        dialog.PrimaryButtonText = "确定";
+                        await dialog.ShowAsync();
+                        return;
+                    }
+                }
+
+                dialog.Title = "提示";
+                dialog.Content = "设置壁纸失败";
+                dialog.PrimaryButtonText = "确定";
+                await dialog.ShowAsync();
+            }
         }
     }
 }

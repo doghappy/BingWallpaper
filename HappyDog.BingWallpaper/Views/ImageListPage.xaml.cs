@@ -37,8 +37,6 @@ namespace HappyDog.BingWallpaper.Views
 
         private void AdaptiveGridView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //Windows.Storage.ApplicationData.Current.LocalFolder.
-            //Windows.System.UserProfile.UserProfilePersonalizationSettings.Current.TrySetWallpaperImageAsync()
             Frame.Navigate(typeof(ImageDetailPage), e.ClickedItem);
         }
     }
