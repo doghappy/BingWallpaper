@@ -12,7 +12,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="{x:Bind ImageInfo.Url, Mode=OneWay}" Stretch="Uniform"/>
         </Grid.Background>
-        <CommandBar OverflowButtonVisibility="Collapsed"
+        <CommandBar OverflowButtonVisibility="Visible"
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Right"
                     Background="Transparent"

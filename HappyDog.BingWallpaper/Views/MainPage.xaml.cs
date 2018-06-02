@@ -32,7 +32,10 @@ namespace HappyDog.BingWallpaper.Views
                     case Type t when e.SourcePageType == typeof(ImageListPage):
                         item = NavView.MenuItems[0] as NavigationViewItem;
                         break;
-                  
+                    case Type t when e.SourcePageType == typeof(DownloadListPage):
+                        item = NavView.MenuItems[1] as NavigationViewItem;
+                        break;
+
                 }
                 if (item != null)
                 {
@@ -52,8 +55,11 @@ namespace HappyDog.BingWallpaper.Views
                 var item = args.SelectedItem as NavigationViewItem;
                 switch (item.Tag)
                 {
-                    case "list":
+                    case "home":
                         ContentFrame.Navigate(typeof(ImageListPage));
+                        break;
+                    case "download":
+                        ContentFrame.Navigate(typeof(DownloadListPage));
                         break;
                 }
             }

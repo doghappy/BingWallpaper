@@ -49,12 +49,24 @@ namespace HappyDog.BingWallpaper.Views
         private async void Download_Click(object sender, RoutedEventArgs e)
         {
             string name = Path.GetFileName(ImageInfo.Url);
-            var file = await ApplicationData.Current.LocalFolder.CreateFileAsync(name, CreationCollisionOption.OpenIfExists);
-            using (var client = new HttpClient())
+
+            var file = await ApplicationData.Current.LocalFolder.TryGetItemAsync(name);
+            if (file == null)
             {
-                byte[] buffer = await client.GetByteArrayAsync(ImageInfo.Url);
-                await FileIO.WriteBytesAsync(file, buffer);
+                var newFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(name, CreationCollisionOption.OpenIfExists);
+                using (var client = new HttpClient())
+                {
+                    byte[] buffer = await client.GetByteArrayAsync(ImageInfo.Url);
+                    await FileIO.WriteBytesAsync(newFile, buffer);
+                }
             }
+            var dialog = new ContentDialog
+            {
+                Title = "提示",
+                Content = "图片下载成功",
+                PrimaryButtonText = "确定"
+            };
+            await dialog.ShowAsync();
         }
     }
 }

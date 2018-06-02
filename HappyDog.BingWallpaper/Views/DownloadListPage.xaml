@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="HappyDog.BingWallpaper.Views.DownloadListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HappyDog.BingWallpaper.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <controls:AdaptiveGridView ItemsSource="{x:Bind Files}"
+                                   ItemHeight="300"
+                                   SelectedItem="{x:Bind Selected, Mode=TwoWay}"
+                                   DesiredWidth="500">
+            <controls:AdaptiveGridView.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <Grid>
+                        <Image Source="{x:Bind}" Stretch="UniformToFill"/>
+                    </Grid>
+                </DataTemplate>
+            </controls:AdaptiveGridView.ItemTemplate>
+        </controls:AdaptiveGridView>
+        <CommandBar OverflowButtonVisibility="Visible"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Right"
+                    Background="Transparent"
+                    DefaultLabelPosition="Bottom">
+            <AppBarButton Icon="Delete" Label="删除" Click="Delete_Click"/>
+            <AppBarButton Icon="Folder" Label="在文件夹中显示" Click="ShowFolder_Click"/>
+        </CommandBar>
+    </Grid>
+</Page>
