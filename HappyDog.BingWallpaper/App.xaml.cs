@@ -22,8 +22,21 @@ namespace HappyDog.BingWallpaper
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
-            this.Suspending += OnSuspending;
+            InitializeComponent();
+            Suspending += OnSuspending;
+            UnhandledException += App_UnhandledException;
+        }
+
+        private async void App_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
+        {
+            e.Handled = true;
+            var dialog = new ContentDialog
+            {
+                Title = "错误",
+                Content = e.Message,
+                PrimaryButtonText = "确定"
+            };
+            await dialog.ShowAsync();
         }
 
         /// <summary>
