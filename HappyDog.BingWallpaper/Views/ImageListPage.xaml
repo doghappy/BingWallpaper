@@ -33,5 +33,9 @@
                 </DataTemplate>
             </controls:AdaptiveGridView.ItemTemplate>
         </controls:AdaptiveGridView>
+
+        <controls:Loading IsLoading="{x:Bind IsLoading, Mode=OneWay}" Background="Black" Opacity=".6">
+            <ProgressBar IsIndeterminate="True" ShowPaused="False" Width="120" ShowError="False"/>
+        </controls:Loading>
     </Grid>
 </Page>
