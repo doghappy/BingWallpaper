@@ -1,9 +1,11 @@
 ﻿using HappyDog.BingWallpaper.Common;
 using HappyDog.BingWallpaper.Models;
 using HappyDog.BingWallpaper.Services;
+using Microsoft.Toolkit.Uwp.Notifications;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using Windows.UI.Notifications;
 using Windows.UI.Xaml.Controls;
 
 namespace HappyDog.BingWallpaper.Views
@@ -43,6 +45,12 @@ namespace HappyDog.BingWallpaper.Views
                 loadCount++;
                 var data = await bingServices.LoadAsync();
                 IsLoading = false;
+
+                if (!executedSetTile)
+                {
+                    SetTile(data);
+                    executedSetTile = true;
+                }
                 return data;
             }
             else
@@ -55,6 +63,40 @@ namespace HappyDog.BingWallpaper.Views
         private void AdaptiveGridView_ItemClick(object sender, ItemClickEventArgs e)
         {
             Frame.Navigate(typeof(ImageDetailPage), e.ClickedItem);
+        }
+
+        bool executedSetTile;
+
+        private void SetTile(IList<ImageInfo> imageInfos)
+        {
+            var tileBinding = new TileBinding
+            {
+                Branding = TileBranding.NameAndLogo,
+                Content = new TileBindingContentPhotos()
+            };
+
+            for (int i = 0; i < imageInfos.Count; i++)
+            {
+                var content = tileBinding.Content as TileBindingContentPhotos;
+                content.Images.Add(new TileBasicImage { Source = imageInfos[i].Url });
+                if (i == 11)
+                {
+                    break;
+                }
+            }
+
+            var tileContent = new TileContent
+            {
+                Visual = new TileVisual
+                {
+                    TileMedium = tileBinding,
+                    TileWide = tileBinding,
+                    TileLarge = tileBinding
+                }
+            };
+
+            var tileNoti = new TileNotification(tileContent.GetXml());
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNoti);
         }
     }
 }
