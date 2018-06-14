@@ -67,6 +67,7 @@ namespace HappyDog.BingWallpaper.Views
 
         bool executedSetTile;
 
+        /*
         private void SetTile(IList<ImageInfo> imageInfos)
         {
             var tileBinding = new TileBinding
@@ -97,6 +98,87 @@ namespace HappyDog.BingWallpaper.Views
 
             var tileNoti = new TileNotification(tileContent.GetXml());
             TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNoti);
+        }
+        }
+         */
+
+        private void SetTile(IList<ImageInfo> imageInfos)
+        {
+            TileUpdateManager.CreateTileUpdaterForApplication().EnableNotificationQueue(true);
+            for (int i = 0; i < imageInfos.Count; i++)
+            {
+                var tileContent = new TileContent
+                {
+                    Visual = new TileVisual
+                    {
+                        TileMedium = new TileBinding
+                        {
+                            Branding = TileBranding.NameAndLogo,
+                            Content = new TileBindingContentAdaptive
+                            {
+                                PeekImage = new TilePeekImage
+                                {
+                                    Source = imageInfos[i].Url
+                                },
+                                Children =
+                                {
+                                    new AdaptiveText
+                                    {
+                                        Text = imageInfos[i].Copyright,
+                                        HintWrap = true
+                                    }
+                                }
+                            }
+                        },
+                        TileWide = new TileBinding
+                        {
+                            Branding = TileBranding.NameAndLogo,
+                            Content = new TileBindingContentAdaptive
+                            {
+                                PeekImage = new TilePeekImage
+                                {
+                                    Source = imageInfos[i].Url
+                                },
+                                Children =
+                                {
+                                    new AdaptiveText
+                                    {
+                                        Text = imageInfos[i].Copyright,
+                                        HintWrap = true
+                                    }
+                                }
+                            }
+                        },
+                        TileLarge = new TileBinding
+                        {
+                            Branding = TileBranding.NameAndLogo,
+                            Content = new TileBindingContentAdaptive
+                            {
+                                PeekImage = new TilePeekImage
+                                {
+                                    Source = imageInfos[i].Url
+                                },
+                                Children =
+                                {
+                                    new AdaptiveText
+                                    {
+                                        Text = imageInfos[i].Copyright,
+                                        HintStyle = AdaptiveTextStyle.Body,
+                                        HintWrap = true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+                var tileNoti = new TileNotification(tileContent.GetXml());
+                TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNoti);
+                if (i == 11)
+                {
+                    break;
+                }
+            }
+
         }
     }
 }
