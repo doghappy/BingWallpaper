@@ -16,11 +16,11 @@ namespace HappyDog.BingWallpaper.Views
         {
             InitializeComponent();
             IsLoading = true;
-            bingServices = new BingServices();
+            bingServices = new BingService();
             Images = new IncrementalCollection<ImageInfo>(LoadAsync);
         }
 
-        readonly BingServices bingServices;
+        readonly BingService bingServices;
         public event PropertyChangedEventHandler PropertyChanged;
 
         public IncrementalCollection<ImageInfo> Images { get; }

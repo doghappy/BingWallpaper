@@ -23,10 +23,11 @@
                 </DataTemplate>
             </controls:AdaptiveGridView.ItemTemplate>
         </controls:AdaptiveGridView>
-        <CommandBar OverflowButtonVisibility="Visible"
+        <CommandBar 
+                    OverflowButtonVisibility="Visible"
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Right"
-                    Background="Transparent"
+                    Background="{ThemeResource SystemControlAcrylicElementBrush}"
                     DefaultLabelPosition="Bottom">
             <AppBarButton Label="设置壁纸" Click="SetWallpaper_Click">
                 <AppBarButton.Icon>

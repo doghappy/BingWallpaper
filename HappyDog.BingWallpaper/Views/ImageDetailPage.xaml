@@ -18,6 +18,11 @@
                     Background="Transparent"
                     DefaultLabelPosition="Bottom">
             <AppBarButton Icon="Download" Label="下载" Click="Download_Click"/>
+            <AppBarButton Label="设为壁纸" Click="SetWallPaper_Click">
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xEB9F;"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
         </CommandBar>
     </Grid>
 </Page>

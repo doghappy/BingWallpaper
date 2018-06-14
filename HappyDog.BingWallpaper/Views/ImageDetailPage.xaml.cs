@@ -1,9 +1,11 @@
 ﻿using HappyDog.BingWallpaper.Models;
+using HappyDog.BingWallpaper.Services;
 using System;
 using System.ComponentModel;
 using System.IO;
 using System.Net.Http;
 using Windows.Storage;
+using Windows.System.UserProfile;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -15,9 +17,12 @@ namespace HappyDog.BingWallpaper.Views
         public ImageDetailPage()
         {
             InitializeComponent();
+            bingService = new BingService();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        readonly BingService bingService;
 
         private ImageInfo imageInfo;
         public ImageInfo ImageInfo
@@ -39,17 +44,7 @@ namespace HappyDog.BingWallpaper.Views
 
         private async void Download_Click(object sender, RoutedEventArgs e)
         {
-            string name = Path.GetFileName(ImageInfo.Url);
-            var file = await ApplicationData.Current.LocalFolder.TryGetItemAsync(name);
-            if (file == null)
-            {
-                var newFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(name, CreationCollisionOption.OpenIfExists);
-                using (var client = new HttpClient())
-                {
-                    byte[] buffer = await client.GetByteArrayAsync(ImageInfo.Url);
-                    await FileIO.WriteBytesAsync(newFile, buffer);
-                }
-            }
+            await bingService.DownloadAsync(ImageInfo.Url);
             var dialog = new ContentDialog
             {
                 Title = "提示",
@@ -57,6 +52,12 @@ namespace HappyDog.BingWallpaper.Views
                 PrimaryButtonText = "确定"
             };
             await dialog.ShowAsync();
+        }
+
+        private async void SetWallPaper_Click(object sender, RoutedEventArgs e)
+        {
+            await bingService.DownloadAsync(ImageInfo.Url);
+            await bingService.SetWallpaperAsync(ImageInfo.Url);
         }
     }
 }
