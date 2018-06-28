@@ -18,12 +18,12 @@
                         AlwaysShowHeader="False">
 
             <NavigationView.MenuItems>
-                <NavigationViewItem Tag="home" Content="主页">
+                <NavigationViewItem Tag="home" x:Uid="NavHome">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Home"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="download" Content="已下载">
+                <NavigationViewItem Tag="download" x:Uid="NavDownload">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Download"/>
                     </NavigationViewItem.Icon>

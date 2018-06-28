@@ -29,13 +29,13 @@
                     HorizontalAlignment="Right"
                     Background="{ThemeResource SystemControlAcrylicElementBrush}"
                     DefaultLabelPosition="Bottom">
-            <AppBarButton Label="设置壁纸" Click="SetWallpaper_Click">
+            <AppBarButton Label="设置壁纸" x:Uid="SetWallpaperAppBarButton" Click="SetWallpaper_Click">
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xEB9F;"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton Icon="Delete" Label="删除" Click="Delete_Click"/>
-            <AppBarButton Icon="Folder" Label="在文件夹中显示" Click="ShowFolder_Click"/>
+            <AppBarButton Icon="Delete" x:Uid="DeleteAppBarButton" Click="Delete_Click"/>
+            <AppBarButton Icon="Folder" x:Uid="ShowFolderAppBarButton" Click="ShowFolder_Click"/>
         </CommandBar>
     </Grid>
 </Page>

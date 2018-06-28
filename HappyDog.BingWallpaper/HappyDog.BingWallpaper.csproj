@@ -125,6 +125,8 @@
     </AppxManifest>
     <None Include="HappyDog.BingWallpaper_StoreKey.pfx" />
     <None Include="HappyDog.BingWallpaper_TemporaryKey.pfx" />
+    <PRIResource Include="Strings\zh-CN\Resources.resw" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Package.StoreAssociation.xml" />
