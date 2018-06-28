@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="BingNewestPhotos" Publisher="CN=81B153BE-B5CF-46D4-BE96-73AC2EAA6CCF" Version="1.1.4.0" />
+  <Identity Name="BingNewestPhotos" Publisher="CN=81B153BE-B5CF-46D4-BE96-73AC2EAA6CCF" Version="1.1.3.0" />
   <mp:PhoneIdentity PhoneProductId="c1db0b8a-dca6-458b-8ac9-f77e95bfd0e6" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Bing Newest Photos</DisplayName>

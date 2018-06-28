@@ -67,41 +67,6 @@ namespace HappyDog.BingWallpaper.Views
 
         bool executedSetTile;
 
-        /*
-        private void SetTile(IList<ImageInfo> imageInfos)
-        {
-            var tileBinding = new TileBinding
-            {
-                Branding = TileBranding.NameAndLogo,
-                Content = new TileBindingContentPhotos()
-            };
-
-            for (int i = 0; i < imageInfos.Count; i++)
-            {
-                var content = tileBinding.Content as TileBindingContentPhotos;
-                content.Images.Add(new TileBasicImage { Source = imageInfos[i].Url });
-                if (i == 11)
-                {
-                    break;
-                }
-            }
-
-            var tileContent = new TileContent
-            {
-                Visual = new TileVisual
-                {
-                    TileMedium = tileBinding,
-                    TileWide = tileBinding,
-                    TileLarge = tileBinding
-                }
-            };
-
-            var tileNoti = new TileNotification(tileContent.GetXml());
-            TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNoti);
-        }
-        }
-         */
-
         private void SetTile(IList<ImageInfo> imageInfos)
         {
             TileUpdateManager.CreateTileUpdaterForApplication().EnableNotificationQueue(true);

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using Windows.Storage;
 using Windows.System.UserProfile;
 using Windows.UI.Xaml.Controls;
@@ -66,13 +67,14 @@ namespace HappyDog.BingWallpaper.Services
             string name = Path.GetFileName(url);
             var file = await ApplicationData.Current.LocalFolder.GetFileAsync(name);
             bool result = await UserProfilePersonalizationSettings.Current.TrySetWallpaperImageAsync(file);
+            var srcLoader = ResourceLoader.GetForCurrentView();
             if (result)
             {
                 ContentDialog dialog = new ContentDialog
                 {
-                    Title = "提示",
-                    Content = "设置壁纸成功",
-                    PrimaryButtonText = "确定"
+                    Title = srcLoader.GetString("TipDialogTitle"),
+                    Content = srcLoader.GetString("SetWallpaperSuccessDialogContent"),
+                    PrimaryButtonText = srcLoader.GetString("DialogOK")
                 };
                 await dialog.ShowAsync();
             }
@@ -80,9 +82,9 @@ namespace HappyDog.BingWallpaper.Services
             {
                 ContentDialog dialog = new ContentDialog
                 {
-                    Title = "提示",
-                    Content = "设置壁纸失败",
-                    PrimaryButtonText = "确定"
+                    Title = srcLoader.GetString("TipDialogTitle"),
+                    Content = srcLoader.GetString("SetWallpaperFailDialogContent"),
+                    PrimaryButtonText = srcLoader.GetString("DialogOK")
                 };
                 await dialog.ShowAsync();
             }

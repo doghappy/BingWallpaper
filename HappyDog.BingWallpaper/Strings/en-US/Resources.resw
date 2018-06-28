@@ -126,8 +126,17 @@
   <data name="DeleteAppBarButton.Label" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="DeleteImageDialogContent" xml:space="preserve">
+    <value>Please select the photo you want to delete</value>
+  </data>
+  <data name="DialogOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
   <data name="DownloadAppBarButton.Label" xml:space="preserve">
     <value>Download</value>
+  </data>
+  <data name="DownloadOkDialogContent" xml:space="preserve">
+    <value>Photo download successful</value>
   </data>
   <data name="NavDownload.Content" xml:space="preserve">
     <value>Downloads</value>
@@ -138,7 +147,16 @@
   <data name="SetWallpaperAppBarButton.Label" xml:space="preserve">
     <value>Change wallpaper</value>
   </data>
+  <data name="SetWallpaperFailDialogContent" xml:space="preserve">
+    <value>Wallpaper change failed</value>
+  </data>
+  <data name="SetWallpaperSuccessDialogContent" xml:space="preserve">
+    <value>Wallpaper change successful</value>
+  </data>
   <data name="ShowFolderAppBarButton.Label" xml:space="preserve">
     <value>Show in folder</value>
+  </data>
+  <data name="TipDialogTitle" xml:space="preserve">
+    <value>Tip</value>
   </data>
 </root>

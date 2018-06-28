@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using Windows.ApplicationModel.Resources;
 using Windows.Storage;
 using Windows.System;
 using Windows.System.UserProfile;
@@ -30,7 +31,7 @@ namespace HappyDog.BingWallpaper.Views
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             var files = await ApplicationData.Current.LocalFolder.GetFilesAsync();
-            foreach (var file in files.OrderByDescending(f=>f.DateCreated))
+            foreach (var file in files.OrderByDescending(f => f.DateCreated))
             {
                 Files.Add(file.Path);
             }
@@ -55,11 +56,12 @@ namespace HappyDog.BingWallpaper.Views
         {
             if (Selected == null)
             {
+                var srcLoader = ResourceLoader.GetForCurrentView();
                 var dialog = new ContentDialog
                 {
-                    Title = "提示",
-                    Content = "请选中要删除的图片",
-                    PrimaryButtonText = "确定"
+                    Title = srcLoader.GetString("TipDialogTitle"),
+                    Content = srcLoader.GetString("DeleteImageDialogContent"),
+                    PrimaryButtonText = srcLoader.GetString("DialogOK")
                 };
                 await dialog.ShowAsync();
             }

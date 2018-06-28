@@ -4,6 +4,7 @@ using System;
 using System.ComponentModel;
 using System.IO;
 using System.Net.Http;
+using Windows.ApplicationModel.Resources;
 using Windows.Storage;
 using Windows.System.UserProfile;
 using Windows.UI.Xaml;
@@ -45,11 +46,12 @@ namespace HappyDog.BingWallpaper.Views
         private async void Download_Click(object sender, RoutedEventArgs e)
         {
             await bingService.DownloadAsync(ImageInfo.Url);
+            var srcLoader = ResourceLoader.GetForCurrentView();
             var dialog = new ContentDialog
             {
-                Title = "提示",
-                Content = "图片下载成功",
-                PrimaryButtonText = "确定"
+                Title = srcLoader.GetString("TipDialogTitle"),
+                Content = srcLoader.GetString("DownloadOkDialogContent"),
+                PrimaryButtonText = srcLoader.GetString("DialogOK")
             };
             await dialog.ShowAsync();
         }
