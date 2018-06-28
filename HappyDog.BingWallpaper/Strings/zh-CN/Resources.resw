@@ -127,7 +127,7 @@
     <value>删除</value>
   </data>
   <data name="DeleteImageDialogContent" xml:space="preserve">
-    <value>请选中要删除的图片</value>
+    <value>请选择一张图片</value>
   </data>
   <data name="DialogOK" xml:space="preserve">
     <value>确定</value>

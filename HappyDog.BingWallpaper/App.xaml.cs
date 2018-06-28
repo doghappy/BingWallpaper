@@ -3,6 +3,7 @@ using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
+using Windows.ApplicationModel.Resources;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -30,11 +31,12 @@ namespace HappyDog.BingWallpaper
         private async void App_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
         {
             e.Handled = true;
+            var srcLoader = ResourceLoader.GetForCurrentView();
             var dialog = new ContentDialog
             {
-                Title = "错误",
+                Title = srcLoader.GetString("TipDialogTitle"),
                 Content = e.Message,
-                PrimaryButtonText = "确定"
+                PrimaryButtonText = srcLoader.GetString("DialogOK")
             };
             await dialog.ShowAsync();
         }

@@ -84,7 +84,22 @@ namespace HappyDog.BingWallpaper.Views
 
         private async void SetWallpaper_Click(object sender, RoutedEventArgs e)
         {
-            await bingService.SetWallpaperAsync(Selected);
+
+            if (Selected == null)
+            {
+                var srcLoader = ResourceLoader.GetForCurrentView();
+                var dialog = new ContentDialog
+                {
+                    Title = srcLoader.GetString("TipDialogTitle"),
+                    Content = srcLoader.GetString("DeleteImageDialogContent"),
+                    PrimaryButtonText = srcLoader.GetString("DialogOK")
+                };
+                await dialog.ShowAsync();
+            }
+            else
+            {
+                await bingService.SetWallpaperAsync(Selected);
+            }
         }
     }
 }

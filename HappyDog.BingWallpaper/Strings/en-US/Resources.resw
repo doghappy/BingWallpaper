@@ -127,7 +127,7 @@
     <value>Delete</value>
   </data>
   <data name="DeleteImageDialogContent" xml:space="preserve">
-    <value>Please select the photo you want to delete</value>
+    <value>Please select the photo</value>
   </data>
   <data name="DialogOK" xml:space="preserve">
     <value>OK</value>
@@ -152,6 +152,9 @@
   </data>
   <data name="SetWallpaperSuccessDialogContent" xml:space="preserve">
     <value>Wallpaper change successful</value>
+  </data>
+  <data name="SetWallpaperUnSelectDialogContent" xml:space="preserve">
+    <value>Please select a photo</value>
   </data>
   <data name="ShowFolderAppBarButton.Label" xml:space="preserve">
     <value>Show in folder</value>
