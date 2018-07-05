@@ -14,7 +14,6 @@
                         IsBackButtonVisible="Visible"
                         BackRequested="NavView_BackRequested"
                         Header="{Binding Path=Content.NavTitile, ElementName=ContentFrame}"
-                        IsSettingsVisible="False"
                         AlwaysShowHeader="False">
 
             <NavigationView.MenuItems>

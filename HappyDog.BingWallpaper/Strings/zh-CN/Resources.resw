@@ -117,11 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About.Text" xml:space="preserve">
+    <value>关于</value>
+  </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>Bing壁纸，每天都有精美壁纸。</value>
+    <value>每天都有精美壁纸。</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>必应壁纸</value>
+    <value>开心狗壁纸</value>
   </data>
   <data name="DeleteAppBarButton.Label" xml:space="preserve">
     <value>删除</value>
@@ -143,6 +146,9 @@
   </data>
   <data name="NavHome.Content" xml:space="preserve">
     <value>主页</value>
+  </data>
+  <data name="PrivacyStatement.Content" xml:space="preserve">
+    <value>隐私声明</value>
   </data>
   <data name="SetWallpaperAppBarButton.Label" xml:space="preserve">
     <value>设为壁纸</value>

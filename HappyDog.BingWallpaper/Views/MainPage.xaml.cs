@@ -48,7 +48,7 @@ namespace HappyDog.BingWallpaper.Views
         {
             if (args.IsSettingsSelected)
             {
-                //ContentFrame.Navigate(typeof(AboutPage));
+                ContentFrame.Navigate(typeof(AboutPage));
             }
             else
             {

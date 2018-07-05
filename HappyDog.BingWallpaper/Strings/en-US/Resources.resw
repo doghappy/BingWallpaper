@@ -117,17 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>Bing Newest Photos, get the newest wallpapers per day</value>
+    <value>Get the newest wallpapers per day</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>Bing Newest Photos</value>
+    <value>Happy Dog Wallpaper</value>
   </data>
   <data name="DeleteAppBarButton.Label" xml:space="preserve">
     <value>Delete</value>
   </data>
   <data name="DeleteImageDialogContent" xml:space="preserve">
-    <value>Please select the photo</value>
+    <value>Please select a photo</value>
   </data>
   <data name="DialogOK" xml:space="preserve">
     <value>OK</value>
@@ -144,6 +147,9 @@
   <data name="NavHome.Content" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="PrivacyStatement.Content" xml:space="preserve">
+    <value>Privacy Statement</value>
+  </data>
   <data name="SetWallpaperAppBarButton.Label" xml:space="preserve">
     <value>Change wallpaper</value>
   </data>
@@ -152,9 +158,6 @@
   </data>
   <data name="SetWallpaperSuccessDialogContent" xml:space="preserve">
     <value>Wallpaper change successful</value>
-  </data>
-  <data name="SetWallpaperUnSelectDialogContent" xml:space="preserve">
-    <value>Please select a photo</value>
   </data>
   <data name="ShowFolderAppBarButton.Label" xml:space="preserve">
     <value>Show in folder</value>
