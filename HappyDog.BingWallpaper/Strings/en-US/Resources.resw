@@ -124,7 +124,7 @@
     <value>Get the newest wallpapers per day</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>Happy Dog Wallpaper</value>
+    <value>Bing Newest Photos</value>
   </data>
   <data name="DeleteAppBarButton.Label" xml:space="preserve">
     <value>Delete</value>
