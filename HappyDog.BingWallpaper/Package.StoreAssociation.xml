@@ -362,11 +362,11 @@
     <MainPackageIdentityName>22778BF0BAC21.BingNewestPhotos</MainPackageIdentityName>
     <ReservedNames>
       <ReservedName>Bing Newest Photos</ReservedName>
+      <ReservedName>开心狗壁纸</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
     <MainPackageIdentityName>22778BF0BAC21.Worktile</MainPackageIdentityName>
-    <MainPackageIdentityName>22778BF0BAC21.492834D8ABC76</MainPackageIdentityName>
     <MainPackageIdentityName>22778BF0BAC21.-UWP</MainPackageIdentityName>
   </AccountPackageIdentityNames>
   <PackageInfoList LandingUrl="https://developer.microsoft.com/dashboard/Application?appId=9N67X7R5Q59J" />
