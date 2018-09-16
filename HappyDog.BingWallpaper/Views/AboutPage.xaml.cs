@@ -16,10 +16,5 @@ namespace HappyDog.BingWallpaper.Views
         }
 
         public string Version { get; }
-
-        private async void PrivacyStatement_Click(object sender, RoutedEventArgs e)
-        {
-            await Launcher.LaunchUriAsync(new Uri("https://doghappy.wang/PrivacyStatements/BingNewestPhotos.html"));
-        }
     }
 }

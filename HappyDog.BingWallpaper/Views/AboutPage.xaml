@@ -12,7 +12,6 @@
         <StackPanel>
             <TextBlock x:Uid="About" Style="{StaticResource HeaderTextBlockStyle}" Margin="0,0,0,16"/>
             <TextBlock Text="{x:Bind Version}"/>
-            <HyperlinkButton x:Uid="PrivacyStatement" Click="PrivacyStatement_Click"/>
         </StackPanel>
     </Grid>
 </Page>
