@@ -123,9 +123,6 @@
   <data name="AppDescription" xml:space="preserve">
     <value>Get the newest wallpapers per day</value>
   </data>
-  <data name="AppDisplayName" xml:space="preserve">
-    <value>Happy Dog Photos</value>
-  </data>
   <data name="DeleteAppBarButton.Label" xml:space="preserve">
     <value>Delete</value>
   </data>
