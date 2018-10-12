@@ -14,4 +14,4 @@
 3. 将快捷方式发送到桌面，您也可以改名为`必应壁纸`
 
 ## UWP
-[Microsoft Store⌨](https://doghappy.wang)
+[Microsoft Store⌨](https://www.microsoft.com/store/apps/9N5K1K870194)
