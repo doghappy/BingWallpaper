@@ -12,3 +12,6 @@
 1. 在`图片`文件夹下创建`BingWallpapers`
 2. 将`BingWallpaper.exe`和`Newtonsoft.Json.dll`复制到`图片/BingWallpapers`
 3. 将快捷方式发送到桌面，您也可以改名为`必应壁纸`
+
+## UWP
+[Microsoft Store⌨](https://doghappy.wang)
