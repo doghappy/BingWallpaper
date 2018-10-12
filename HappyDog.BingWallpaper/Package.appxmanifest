@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="22778BF0BAC21.BingNewestPhotos" Publisher="CN=81B153BE-B5CF-46D4-BE96-73AC2EAA6CCF" Version="1.1.3.0" />
-  <mp:PhoneIdentity PhoneProductId="02a9ab4a-8cb4-4c77-966f-2a1ee995b1b2" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="22778BF0BAC21.DogHappyWallpaper" Publisher="CN=81B153BE-B5CF-46D4-BE96-73AC2EAA6CCF" Version="1.0.1.0" />
+  <mp:PhoneIdentity PhoneProductId="95a09fc4-c48c-428b-bd03-a987269ba243" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Bing Newest Photos</DisplayName>
+    <DisplayName>Dog Happy Wallpaper</DisplayName>
     <PublisherDisplayName>熊掌不好吃</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -15,8 +15,8 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="HappyDog.BingWallpaper.App">
-      <uap:VisualElements DisplayName="Bing Newest Photos" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="ms-resource:AppDescription" BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png" ShortName="Bing Newest Photos">
+      <uap:VisualElements DisplayName="Dog Happy Wallpaper" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="ms-resource:AppDescription" BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png" ShortName="Dog Happy Wallpaper">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />
             <uap:ShowOn Tile="wide310x150Logo" />
