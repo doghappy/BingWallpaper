@@ -84,7 +84,6 @@ namespace HappyDog.BingWallpaper.Views
 
         private async void SetWallpaper_Click(object sender, RoutedEventArgs e)
         {
-
             if (Selected == null)
             {
                 var srcLoader = ResourceLoader.GetForCurrentView();

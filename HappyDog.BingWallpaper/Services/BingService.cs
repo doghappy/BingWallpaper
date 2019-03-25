@@ -1,4 +1,5 @@
 ﻿using HappyDog.BingWallpaper.Models;
+using Microsoft.QueryStringDotNET;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -52,7 +53,8 @@ namespace HappyDog.BingWallpaper.Services
 
         public async Task DownloadAsync(string url)
         {
-            string name = Path.GetFileName(url);
+            QueryString args = QueryString.Parse(url);
+            string name = args["rf"];
             var file = await ApplicationData.Current.LocalFolder.TryGetItemAsync(name);
             if (file == null)
             {
@@ -64,7 +66,8 @@ namespace HappyDog.BingWallpaper.Services
 
         public async Task SetWallpaperAsync(string url)
         {
-            string name = Path.GetFileName(url);
+            QueryString args = QueryString.Parse(url);
+            string name = args["rf"];
             var file = await ApplicationData.Current.LocalFolder.GetFileAsync(name);
             bool result = await UserProfilePersonalizationSettings.Current.TrySetWallpaperImageAsync(file);
             var srcLoader = ResourceLoader.GetForCurrentView();
