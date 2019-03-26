@@ -35,7 +35,6 @@ namespace HappyDog.BingWallpaper.Views
                     case Type t when e.SourcePageType == typeof(DownloadListPage):
                         item = NavView.MenuItems[1] as NavigationViewItem;
                         break;
-
                 }
                 if (item != null)
                 {

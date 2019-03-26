@@ -41,7 +41,7 @@ namespace HappyDog.BingWallpaper.Services
                 int day = int.Parse(date.Substring(6));
                 list.Add(new ImageInfo
                 {
-                    Url = "https://www.bing.com/" + item.url,
+                    Url = "https://www.bing.com" + item.url,
                     Copyright = item.copyright,
                     CopyrightLink = item.copyrightlink,
                     Date = new DateTime(year, month, day)
@@ -54,7 +54,7 @@ namespace HappyDog.BingWallpaper.Services
         public async Task DownloadAsync(string url)
         {
             QueryString args = QueryString.Parse(url);
-            string name = args["rf"];
+            string name = args["https://www.bing.com/th?id"];
             var file = await ApplicationData.Current.LocalFolder.TryGetItemAsync(name);
             if (file == null)
             {
@@ -67,7 +67,7 @@ namespace HappyDog.BingWallpaper.Services
         public async Task SetWallpaperAsync(string url)
         {
             QueryString args = QueryString.Parse(url);
-            string name = args["rf"];
+            string name = args["https://www.bing.com/th?id"];
             var file = await ApplicationData.Current.LocalFolder.GetFileAsync(name);
             bool result = await UserProfilePersonalizationSettings.Current.TrySetWallpaperImageAsync(file);
             var srcLoader = ResourceLoader.GetForCurrentView();
