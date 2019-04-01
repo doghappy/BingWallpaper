@@ -7,7 +7,6 @@ using System.Linq;
 using Windows.ApplicationModel.Resources;
 using Windows.Storage;
 using Windows.System;
-using Windows.System.UserProfile;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -84,21 +83,8 @@ namespace HappyDog.BingWallpaper.Views
 
         private async void SetWallpaper_Click(object sender, RoutedEventArgs e)
         {
-            if (Selected == null)
-            {
-                var srcLoader = ResourceLoader.GetForCurrentView();
-                var dialog = new ContentDialog
-                {
-                    Title = srcLoader.GetString("TipDialogTitle"),
-                    Content = srcLoader.GetString("DeleteImageDialogContent"),
-                    PrimaryButtonText = srcLoader.GetString("DialogOK")
-                };
-                await dialog.ShowAsync();
-            }
-            else
-            {
-                await bingService.SetWallpaperAsync(Selected);
-            }
+            string fileName = Path.GetFileName(Selected);
+            await bingService.SetWallpaperByNameAsync(fileName);
         }
     }
 }

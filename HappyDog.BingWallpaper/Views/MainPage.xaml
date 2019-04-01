@@ -10,7 +10,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <NavigationView x:Name="NavView" 
+        <NavigationView x:Name="NavView"
+                        PaneDisplayMode="Top"
                         IsBackButtonVisible="Visible"
                         BackRequested="NavView_BackRequested"
                         Header="{Binding Path=Content.NavTitile, ElementName=ContentFrame}"

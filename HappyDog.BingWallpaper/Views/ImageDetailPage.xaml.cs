@@ -59,7 +59,7 @@ namespace HappyDog.BingWallpaper.Views
         private async void SetWallPaper_Click(object sender, RoutedEventArgs e)
         {
             await bingService.DownloadAsync(ImageInfo.Url);
-            await bingService.SetWallpaperAsync(ImageInfo.Url);
+            await bingService.SetWallpaperByUrlAsync(ImageInfo.Url);
         }
     }
 }

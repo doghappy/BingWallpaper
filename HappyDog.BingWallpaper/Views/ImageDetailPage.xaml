@@ -6,17 +6,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Black">
 
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="{x:Bind ImageInfo.Url, Mode=OneWay}" Stretch="Uniform"/>
         </Grid.Background>
-        <CommandBar OverflowButtonVisibility="Visible"
-                    VerticalAlignment="Bottom"
-                    HorizontalAlignment="Right"
-                    Background="Transparent"
-                    DefaultLabelPosition="Bottom">
+        <CommandBar VerticalAlignment="Bottom"
+                    Background="{ThemeResource SystemControlAcrylicElementBrush}"
+                    DefaultLabelPosition="Right">
             <AppBarButton Icon="Download" x:Uid="DownloadAppBarButton" Click="Download_Click"/>
             <AppBarButton x:Uid="SetWallpaperAppBarButton" Click="SetWallPaper_Click">
                 <AppBarButton.Icon>

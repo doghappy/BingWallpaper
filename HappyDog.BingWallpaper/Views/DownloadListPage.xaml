@@ -3,12 +3,17 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:HappyDog.BingWallpaper.Views"
+    xmlns:cvt="using:HappyDog.BingWallpaper.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     Loaded="Page_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <cvt:IsNotNullConverter x:Key="IsNotNullConverter"/>
+    </Page.Resources>
 
     <Grid>
         <controls:AdaptiveGridView ItemsSource="{x:Bind Files}"
@@ -23,19 +28,26 @@
                 </DataTemplate>
             </controls:AdaptiveGridView.ItemTemplate>
         </controls:AdaptiveGridView>
-        <CommandBar 
-                    OverflowButtonVisibility="Visible"
-                    VerticalAlignment="Bottom"
-                    HorizontalAlignment="Right"
+        <CommandBar VerticalAlignment="Bottom"
                     Background="{ThemeResource SystemControlAcrylicElementBrush}"
-                    DefaultLabelPosition="Bottom">
-            <AppBarButton Label="设置壁纸" x:Uid="SetWallpaperAppBarButton" Click="SetWallpaper_Click">
+                    DefaultLabelPosition="Right">
+            <AppBarButton x:Uid="SetWallpaperAppBarButton"
+                          Click="SetWallpaper_Click"
+                          IsEnabled="{x:Bind Selected, Mode=OneWay, Converter={StaticResource IsNotNullConverter}}">
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xEB9F;"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton Icon="Delete" x:Uid="DeleteAppBarButton" Click="Delete_Click"/>
-            <AppBarButton Icon="Folder" x:Uid="ShowFolderAppBarButton" Click="ShowFolder_Click"/>
+            <AppBarButton x:Uid="ShowFolderAppBarButton" Click="ShowFolder_Click">
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xED43;"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton x:Uid="DeleteAppBarButton"
+                          Icon="Delete"
+                          Foreground="Red"
+                          IsEnabled="{x:Bind Selected, Mode=OneWay, Converter={StaticResource IsNotNullConverter}}"
+                          Click="Delete_Click"/>
         </CommandBar>
     </Grid>
 </Page>

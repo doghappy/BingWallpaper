@@ -64,11 +64,16 @@ namespace HappyDog.BingWallpaper.Services
             }
         }
 
-        public async Task SetWallpaperAsync(string url)
+        public async Task SetWallpaperByUrlAsync(string url)
         {
             QueryString args = QueryString.Parse(url);
             string name = args["https://www.bing.com/th?id"];
-            var file = await ApplicationData.Current.LocalFolder.GetFileAsync(name);
+            await SetWallpaperByNameAsync(name);
+        }
+
+        public async Task SetWallpaperByNameAsync(string fileName)
+        {
+            var file = await ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
             bool result = await UserProfilePersonalizationSettings.Current.TrySetWallpaperImageAsync(file);
             var srcLoader = ResourceLoader.GetForCurrentView();
             if (result)
