@@ -24,6 +24,9 @@ namespace HappyDog.BingWallpaper.Views
         private void ContentFrame_Navigated(object sender, NavigationEventArgs e)
         {
             NavView.IsBackEnabled = ContentFrame.CanGoBack;
+            NavView.IsBackButtonVisible = NavView.IsBackEnabled
+                ? NavigationViewBackButtonVisible.Visible
+                : NavigationViewBackButtonVisible.Collapsed;
             if (e.NavigationMode == NavigationMode.Back)
             {
                 NavigationViewItem item = null;

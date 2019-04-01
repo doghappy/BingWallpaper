@@ -12,7 +12,7 @@
     <Grid>
         <NavigationView x:Name="NavView"
                         PaneDisplayMode="Top"
-                        IsBackButtonVisible="Visible"
+                        IsBackButtonVisible="Collapsed"
                         BackRequested="NavView_BackRequested"
                         Header="{Binding Path=Content.NavTitile, ElementName=ContentFrame}"
                         AlwaysShowHeader="False">
